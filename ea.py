@@ -10,9 +10,9 @@ a = []
 topic_number = int(raw_input("Please enter topics number: "))
 
 # Get the data
-print "Please enter the rating for each topic  one by one\n"
+print "Please enter the rating for each topic  one by one (0 - 10)\n"
 for i in range(0, topic_number):
-    a.append(float(raw_input("%s: " % i+1)))
+    a.append(float(raw_input("%s: " % str(i+1))))
 
 # sort list
 a.sort(reverse=True)
@@ -40,6 +40,7 @@ for y in range(1, topic_number+1):
 # find y with maximum factor_summ
 y_result = max(factor_summ, key=factor_summ.get)
 
+
 # find x for this y
 x_result = s/y_result
 
@@ -47,8 +48,9 @@ x_result = s/y_result
 if x_result > a[0]:
     x_result = a[0]
     # The area should be equal to the sum of all estimates.
+
     y_result = s/x_result
 
 
 # We have to use 10 point scale for the output
-print "x = %s, y = %s" % (int(round(10*x_result/topic_number)), int(round(10*y_result/par_number)))
+print "x = %s, y = %s" % (int(round(x_result)), int(round(10*y_result/topic_number)))
